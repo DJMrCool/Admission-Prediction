@@ -1,32 +1,30 @@
-**[Watch Video Tutorial](https://www.youtube.com/c/YBIFoundation?sub_confirmation=1)**
-# Step 1 : import library
-import pandas as pd
-# Step 2 : import data
-admission = pd.read_csv('https://github.com/ybifoundation/Dataset/raw/main/Admission%20Chance.csv')
-admission.head()
-admission.info()
-admission.describe()
-# Step 3 : define target (y) and features (X)
-admission.columns
-y = admission['Chance of Admit ']
-X = admission.drop(['Serial No','Chance of Admit '],axis=1)
-# Step 4 : train test split
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X,y, train_size=0.7, random_state=2529)
-# check shape of train and test sample
-X_train.shape, X_test.shape, y_train.shape, y_test.shape
-# Step 5 : select model
-from sklearn.linear_model import LinearRegression
-model = LinearRegression()
-# Step 6 : train or fit model
-model.fit(X_train,y_train)
-model.intercept_
-model.coef_
-# Step 7 : predict model
-y_pred = model.predict(X_test)
-y_pred
-# Step 8 : model accuracy
-from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, mean_squared_error
-mean_absolute_error(y_test,y_pred)
-mean_absolute_percentage_error(y_test,y_pred)
-mean_squared_error(y_test,y_pred)
+# Admission Prediction Using AI
+
+## Overview
+
+This project aims to predict admission chances for prospective students using machine learning algorithms. The goal is to develop a model that can accurately predict the likelihood of a student being admitted to a university based on various features such as academic performance, test scores, and extracurricular activities.
+
+## Features
+
+- **Data Collection**: Aggregates data from various sources, including student profiles and academic records.
+- **Preprocessing**: Cleans and preprocesses the data for analysis.
+- **Model Training**: Utilizes machine learning algorithms to train a predictive model.
+- **Evaluation**: Assesses the performance of the model using metrics such as accuracy, precision, and recall.
+- **Prediction**: Provides admission predictions based on new input data.
+
+## Technologies Used
+
+- **Python**: Programming language used for developing the project.
+- **Pandas**: For data manipulation and analysis.
+- **Scikit-learn**: For implementing machine learning algorithms.
+- **NumPy**: For numerical operations.
+- **Matplotlib / Seaborn**: For data visualization.
+- **Jupyter Notebook**: For interactive development and documentation.
+
+## Installation
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/DJMrCool/admission-prediction.git
+   cd admission-prediction
